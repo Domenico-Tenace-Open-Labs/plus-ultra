@@ -1,0 +1,34 @@
+{
+  "name": "plus-ultra",
+  "version": "0.1.0",
+  "description": "Material Design components built on top of Bulma CSS, using pure CSS/Sass",
+  "scripts": {
+    "build": "sass --load-path=node_modules src/sass/index.scss dist/plus-ultra.css",
+    "watch": "sass --watch --load-path=node_modules src/sass/index.scss dist/plus-ultra.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Domenico-Tenace-Open-Labs/plus-ultra"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "bulma",
+    "material-design",
+    "ui",
+    "frontend"
+  ],
+  "author": "Domenico Tenace",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.1",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/plus-ultra.css",
+  "dependencies": {
+    "bulma": "^1.0.4"
+  },
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}
