@@ -1,0 +1,35 @@
+@use "variables" as v;
+
+@use "bulma/sass/utilities" with (
+  $scheme-h: v.$scheme-h,
+  $primary: v.$primary,
+  $info: v.$info,
+  $success: v.$success,
+  $warning: v.$warning,
+  $danger: v.$danger,
+
+  $family-sans-serif: v.$family-sans-serif,
+  $family-monospace: v.$family-monospace,
+
+  $radius: v.$radius,
+  $radius-small: v.$radius-small,
+  $radius-large: v.$radius-large,
+
+  $grey-darker: v.$grey-darker,
+  $grey-dark: v.$grey-dark,
+  $grey: v.$grey,
+  $grey-light: v.$grey-light,
+  $grey-lighter: v.$grey-lighter,
+  $grey-lightest: v.$grey-lightest,
+
+  $white-ter: v.$white-ter
+);
+
+@use "bulma/sass/base";
+@use "bulma/sass/elements";
+@use "bulma/sass/form";
+@use "bulma/sass/components";
+@use "bulma/sass/grid";
+@use "bulma/sass/helpers";
+@use "bulma/sass/layout";
+@use "bulma/sass/themes";
