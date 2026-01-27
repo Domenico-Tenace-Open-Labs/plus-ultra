@@ -1,3 +1,5 @@
+# AGENTS.md
+
 ## Project Overview
 
 **plus-ultra** is an open source CSS/Sass library that provides Material Design–inspired components built on top of **Bulma CSS**.
