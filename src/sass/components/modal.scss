@@ -1,0 +1,73 @@
+@use "../variables" as v;
+
+.modal {
+  // Backdrop
+  .modal-background {
+    background-color: rgba(0, 0, 0, 0.6); // Dimmer
+  }
+
+  .modal-content,
+  .modal-card {
+    border-radius: 4px; // Surface shape
+    box-shadow:
+      0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12); // Elevation 24
+    width: auto;
+    min-width: 280px;
+    max-width: 80%; // Responsive limits
+  }
+
+  // Header (Title)
+  .modal-card-head {
+    border-bottom: none; // Material doesn't usually line divide headers
+    background-color: v.$white;
+    padding: 24px 24px 20px;
+
+    .modal-card-title {
+      font-size: 1.25rem; // H6
+      font-weight: 500;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .delete {
+      // Often Material Dialogs don't have top-right close x, but distinct buttons.
+      // If present:
+      display: none; // Hide standard bulma delete
+    }
+  }
+
+  // Body
+  .modal-card-body {
+    background-color: v.$white;
+    color: rgba(0, 0, 0, 0.6); // Body color
+    padding: 0 24px 24px; // Bottom padding
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  // Footer (Actions)
+  .modal-card-foot {
+    background-color: v.$white;
+    border-top: none;
+    padding: 8px 16px 16px; // Alignment
+    justify-content: flex-end; // Right align actions
+
+    .button {
+      margin-left: 8px;
+      min-width: 64px;
+
+      // Ensure actions look like text buttons unless primary
+      &:not(.is-primary):not(.is-danger):not(.is-success) {
+        background-color: transparent;
+        box-shadow: none;
+        color: v.$primary;
+
+        &:hover {
+          background-color: rgba(v.$primary, 0.04);
+        }
+      }
+    }
+  }
+}

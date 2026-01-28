@@ -1,0 +1,146 @@
+@use "../variables" as v;
+@use "sass:color";
+
+.button {
+  height: 36px;
+  min-width: 64px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--bulma-family-sans-serif);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.0892857143em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Default Contained (Neutral)
+  background-color: var(
+    --bulma-border
+  ); // Use a neutral grey visible in both modes
+  color: var(--bulma-text-strong);
+  box-shadow:
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background-color: var(--bulma-border-hover);
+    box-shadow:
+      0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    box-shadow:
+      0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  &.is-primary {
+    background-color: var(--bulma-primary);
+    color: var(--bulma-primary-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.is-link {
+    background-color: var(--bulma-link);
+    color: var(--bulma-link-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.is-info {
+    background-color: var(--bulma-info);
+    color: var(--bulma-info-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.is-success {
+    background-color: var(--bulma-success);
+    color: var(--bulma-success-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.is-warning {
+    background-color: var(--bulma-warning);
+    color: var(--bulma-warning-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &.is-danger {
+    background-color: var(--bulma-danger);
+    color: var(--bulma-danger-invert) !important;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  // Outlined
+  &.is-outlined {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: 1px solid var(--bulma-border-hover) !important;
+    color: var(--bulma-primary);
+
+    &:hover {
+      background-color: rgba(125, 125, 125, 0.1) !important;
+      border: 1px solid var(--bulma-text) !important;
+    }
+
+    &.is-primary {
+      border-color: var(--bulma-primary) !important;
+      color: var(--bulma-primary) !important;
+      &:hover {
+        background-color: rgba(125, 125, 125, 0.1) !important;
+      } // Can't easily use var for alpha
+    }
+  }
+
+  // Text / Ghost
+  &.is-text,
+  &.is-ghost,
+  &.is-white,
+  &.is-light {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: var(--bulma-primary);
+    border: none !important;
+    min-width: 64px;
+    padding: 0 8px;
+
+    &:hover {
+      background-color: rgba(125, 125, 125, 0.1) !important;
+      text-decoration: none !important;
+    }
+  }
+
+  // State
+  &.is-loading {
+    color: transparent !important;
+    pointer-events: none;
+    &::after {
+      border-color: transparent transparent var(--bulma-text) var(--bulma-text) !important;
+    }
+  }
+
+  &[disabled] {
+    background-color: var(--bulma-background) !important;
+    color: var(--bulma-text-light) !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    cursor: default;
+  }
+}

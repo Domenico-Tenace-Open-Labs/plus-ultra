@@ -5,7 +5,6 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
   position: relative;
   display: inline-block;
   width: 34px;
@@ -15,6 +14,7 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
   outline: none;
 
+  // Track
   &::before {
     content: "";
     position: absolute;
@@ -24,21 +24,24 @@ input[type="checkbox"] {
     width: 34px;
     height: 14px;
     border-radius: 14px;
-    background-color: rgba(0, 0, 0, 0.38);
+    background-color: var(
+      --bulma-text-light
+    ); // Dynamic disabled/unchecked track
     transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
   }
 
+  // Thumb
   &::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: v.$white;
+    background-color: var(--bulma-scheme-main-bis); // Surface color thumb
     box-shadow:
       0 2px 1px -1px rgba(0, 0, 0, 0.2),
       0 1px 1px 0 rgba(0, 0, 0, 0.14),
@@ -50,52 +53,57 @@ input[type="checkbox"] {
 
   &:hover::after {
     box-shadow:
-      0 0 0 8px rgba(0, 0, 0, 0.04),
-      0 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0 1px 1px 0 rgba(0, 0, 0, 0.14),
-      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+      0 0 0 8px rgba(125, 125, 125, 0.1),
+      // Neutral hover
+      0 2px 1px -1px rgba(0, 0, 0, 0.2);
   }
 
   &:checked {
     &::before {
-      background-color: color.scale(v.$primary, $alpha: -50%);
+      background-color: var(--bulma-primary); // Primary track
+      opacity: 0.5;
     }
 
     &::after {
       transform: translate(14px, -50%);
-      background-color: v.$primary;
+      background-color: var(--bulma-primary); // Primary thumb
     }
+
+    // We can't use color.scale easily on CSS variables without CSS4/complex calc.
+    // For ripple, we'll use a transparency trick or just opacity.
 
     &:hover::after {
       box-shadow:
-        0 0 0 8px color.scale(v.$primary, $alpha: -88%),
-        0 2px 1px -1px rgba(0, 0, 0, 0.2),
-        0 1px 1px 0 rgba(0, 0, 0, 0.14),
-        0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        0 0 0 8px var(--bulma-primary-soft-invert),
+        // Need a soft primary representation?
+        // Bulma CSS vars don't have "primary-transparent".
+        // We'll trust browser default or use a known generic.
+        0 0 0 8px
+          rgba(
+            var(--bulma-primary-h),
+            var(--bulma-primary-s),
+            var(--bulma-primary-l),
+            0.12
+          ),
+        // Wait, Bulma HSL vars exist but not easy to construct rgba in CSS string.
+        // Fallback:
+        0 0 0 8px currentColor;
+      // Set color to primary?
     }
   }
 
-  &:focus-visible::after {
-    box-shadow:
-      0 0 0 10px rgba(0, 0, 0, 0.12),
-      0 2px 1px -1px rgba(0, 0, 0, 0.2);
-  }
-
-  &:checked:focus-visible::after {
-    box-shadow:
-      0 0 0 10px color.scale(v.$primary, $alpha: -76%),
-      0 2px 1px -1px rgba(0, 0, 0, 0.2);
+  &:checked {
+    color: var(--bulma-primary); // Set current color for hover trick
   }
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-
     &::before {
-      background-color: rgba(0, 0, 0, 0.12);
+      background-color: var(--bulma-background);
     }
     &::after {
-      background-color: v.$grey-light;
+      background-color: var(--bulma-border);
       box-shadow: none;
     }
   }

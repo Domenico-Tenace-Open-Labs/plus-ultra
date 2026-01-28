@@ -10,66 +10,67 @@
     padding-left: 16px;
     font-size: 1rem;
     border-radius: 4px !important;
+    color: var(--bulma-text);
 
     background-color: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.38);
+    border: 1px solid var(--bulma-border);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.87);
+      border-color: var(--bulma-text-strong);
       z-index: 2;
     }
 
     &:focus {
-      border-color: v.$primary !important;
+      border-color: var(--bulma-primary) !important;
       border-width: 2px;
       box-shadow: none !important;
       padding-left: calc(16px - 1px);
     }
   }
 
+  // Arrow
   &:not(.is-multiple):not(.is-loading)::after {
-    border-color: rgba(0, 0, 0, 0.54);
+    border-color: var(--bulma-text-weak);
     right: 16px;
     border-width: 2px;
     margin-top: -4px;
   }
 
   &:hover::after {
-    border-color: rgba(0, 0, 0, 0.87);
+    border-color: var(--bulma-text);
   }
 
+  // Filled Variant
   &.is-material-filled {
     select {
-      background-color: rgba(0, 0, 0, 0.06);
+      background-color: rgba(125, 125, 125, 0.1);
       border: none;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+      border-bottom: 2px solid var(--bulma-border-hover);
       border-radius: 4px 4px 0 0 !important;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.09);
-        border-bottom-color: rgba(0, 0, 0, 0.87);
+        background-color: rgba(125, 125, 125, 0.15);
+        border-bottom-color: var(--bulma-text-strong);
       }
 
       &:focus {
-        background-color: rgba(0, 0, 0, 0.09);
-        border-bottom-color: v.$primary !important;
+        background-color: rgba(125, 125, 125, 0.15);
+        border-bottom-color: var(--bulma-primary) !important;
       }
     }
   }
+
+  // Options
   select option {
     padding: 8px 16px;
     font-size: 1rem;
-    color: rgba(0, 0, 0, 0.87);
-    background-color: v.$white;
+    color: var(--bulma-text);
+    background-color: var(--bulma-scheme-main); // Dark mode surface
 
     &:checked {
-      background-color: rgba(0, 0, 0, 0.12);
-      color: v.$primary;
-    }
-
-    &:hover {
-      box-shadow: 0 0 10px 100px rgba(0, 0, 0, 0.04) inset;
+      background-color: var(--bulma-background); // Slightly distinct
+      color: var(--bulma-primary);
     }
   }
 }

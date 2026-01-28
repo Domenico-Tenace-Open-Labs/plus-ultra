@@ -1,0 +1,93 @@
+@use "../variables" as v;
+@use "sass:color";
+
+.tag {
+  // Material Chip
+  align-items: center;
+  background-color: #e0e0e0; // Grey 300
+  border-radius: 16px; // Chip radius
+  color: rgba(0, 0, 0, 0.87); // High emphasis
+  display: inline-flex;
+  font-size: 0.8125rem; // 13sp
+  height: 32px; // Standard height
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 12px;
+  padding-right: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+
+  // Spacing
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  // Icon inside tag
+  .icon {
+    margin-left: -4px;
+    margin-right: 4px;
+    height: 18px;
+    width: 18px;
+  }
+
+  // Delete button inside tag
+  .delete {
+    margin-left: 4px;
+    margin-right: -4px;
+    background-color: transparent;
+    opacity: 0.54;
+
+    // Custom delete icon similar to Material cancel
+    &::before,
+    &::after {
+      background-color: #000;
+    }
+
+    &:hover {
+      background-color: transparent;
+      opacity: 0.87;
+    }
+  }
+
+  // Colors
+  &.is-primary {
+    background-color: v.$primary;
+    color: v.$white;
+  }
+  &.is-link {
+    background-color: v.$link;
+    color: v.$white;
+  }
+  &.is-info {
+    background-color: v.$info;
+    color: v.$white;
+  }
+  &.is-success {
+    background-color: v.$success;
+    color: v.$white;
+  }
+  &.is-warning {
+    background-color: v.$warning;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  &.is-danger {
+    background-color: v.$danger;
+    color: v.$white;
+  }
+
+  &.is-light {
+    background-color: v.$white-ter;
+    border: 1px solid #e0e0e0;
+  }
+
+  // Sizes - Chips dont vary much but we support Bulma modifiers
+  &.is-medium {
+    height: 32px;
+    font-size: 0.875rem;
+  }
+  &.is-large {
+    height: 40px;
+    border-radius: 20px;
+    font-size: 1rem;
+  }
+}
