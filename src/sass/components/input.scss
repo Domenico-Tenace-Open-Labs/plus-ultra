@@ -36,13 +36,5 @@
     &:hover {
       border-color: rgba(0, 0, 0, 0.87);
     }
-
-    &:focus {
-      border-color: var(--bulma-primary);
-      border-width: 2px;
-      padding-left: calc(16px - 1px);
-      padding-right: calc(16px - 1px);
-      box-shadow: none !important;
-    }
   }
 }
