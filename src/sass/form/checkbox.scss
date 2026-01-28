@@ -1,0 +1,102 @@
+@use "../variables" as v;
+@use "sass:color";
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  outline: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 14px;
+    border-radius: 14px;
+    background-color: rgba(0, 0, 0, 0.38);
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: v.$white;
+    box-shadow:
+      0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover::after {
+    box-shadow:
+      0 0 0 8px rgba(0, 0, 0, 0.04),
+      0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  &:checked {
+    &::before {
+      background-color: color.scale(v.$primary, $alpha: -50%);
+    }
+
+    &::after {
+      transform: translate(14px, -50%);
+      background-color: v.$primary;
+    }
+
+    &:hover::after {
+      box-shadow:
+        0 0 0 8px color.scale(v.$primary, $alpha: -88%),
+        0 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &:focus-visible::after {
+    box-shadow:
+      0 0 0 10px rgba(0, 0, 0, 0.12),
+      0 2px 1px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  &:checked:focus-visible::after {
+    box-shadow:
+      0 0 0 10px color.scale(v.$primary, $alpha: -76%),
+      0 2px 1px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &::before {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+    &::after {
+      background-color: v.$grey-light;
+      box-shadow: none;
+    }
+  }
+}

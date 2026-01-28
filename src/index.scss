@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-//Overrides and Custom Components
+//Overrides
 @use "sass/override";
-@use "sass/components/input.scss";
+//Components
 @use "sass/components/icon.scss";
+//Form
+@use "sass/form/checkbox.scss";
+@use "sass/form/input.scss";
+@use "sass/form/select.scss";

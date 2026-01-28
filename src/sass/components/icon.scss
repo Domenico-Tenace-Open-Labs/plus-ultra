@@ -15,7 +15,6 @@ $icon-dimensions-large: 3rem !default;
   line-height: 1;
   color: inherit;
 
-  // Modifiers
   &.is-small {
     height: $icon-dimensions-small;
     width: $icon-dimensions-small;
@@ -35,22 +34,18 @@ $icon-dimensions-large: 3rem !default;
   }
 }
 
-// Icons in Form Controls
 .control {
-  // Base icon positioning for inputs
   &.has-icons-left,
   &.has-icons-right {
     .icon {
-      color: v.$text-weak; // Use darker grey for better visibility (Material Gray 600 approx)
-      height: 2.5em; // Matches default input height
+      color: v.$text-weak;
+      height: 2.5em;
       pointer-events: none;
       position: absolute;
       top: 0;
       width: 2.5em;
       z-index: 4;
-      transition: color v.$duration v.$easing; // Smooth transition on focus
-
-      // Adjust icon size inside the input container for better proportion
+      transition: color v.$duration v.$easing;
       font-size: 1.125rem;
     }
   }
@@ -65,7 +60,6 @@ $icon-dimensions-large: 3rem !default;
       left: 0;
     }
 
-    // Active state
     .input:focus ~ .icon.is-left,
     .select select:focus ~ .icon.is-left {
       color: v.$primary;
@@ -82,7 +76,6 @@ $icon-dimensions-large: 3rem !default;
       right: 0;
     }
 
-    // Active state
     .input:focus ~ .icon.is-right,
     .select select:focus ~ .icon.is-right {
       color: v.$primary;

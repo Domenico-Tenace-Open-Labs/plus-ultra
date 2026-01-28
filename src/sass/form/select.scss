@@ -1,0 +1,75 @@
+@use "../variables" as v;
+
+.select {
+  height: 56px !important;
+
+  select {
+    height: 56px !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    font-size: 1rem;
+    border-radius: 4px !important;
+
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.87);
+      z-index: 2;
+    }
+
+    &:focus {
+      border-color: v.$primary !important;
+      border-width: 2px;
+      box-shadow: none !important;
+      padding-left: calc(16px - 1px);
+    }
+  }
+
+  &:not(.is-multiple):not(.is-loading)::after {
+    border-color: rgba(0, 0, 0, 0.54);
+    right: 16px;
+    border-width: 2px;
+    margin-top: -4px;
+  }
+
+  &:hover::after {
+    border-color: rgba(0, 0, 0, 0.87);
+  }
+
+  &.is-material-filled {
+    select {
+      background-color: rgba(0, 0, 0, 0.06);
+      border: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+      border-radius: 4px 4px 0 0 !important;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.09);
+        border-bottom-color: rgba(0, 0, 0, 0.87);
+      }
+
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.09);
+        border-bottom-color: v.$primary !important;
+      }
+    }
+  }
+  select option {
+    padding: 8px 16px;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: v.$white;
+
+    &:checked {
+      background-color: rgba(0, 0, 0, 0.12);
+      color: v.$primary;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 100px rgba(0, 0, 0, 0.04) inset;
+    }
+  }
+}
