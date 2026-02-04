@@ -44,7 +44,7 @@
     width: 16px;
     height: 16px;
     transform: translateY(-50%) scale(0);
-    background-color: var(--bulma-primary); // Dynamic Primary
+    background-color: var(--bulma-primary);
     border-radius: 50%;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -74,8 +74,7 @@
 .radio:has(input[type="radio"]:checked):hover {
   color: var(--bulma-primary);
   &::before {
-    box-shadow: 0 0 0 8px currentColor; // Trick to use simplified primary color
-    // opacity of shadow will be solid but standard css var usage is limited without calc
+    box-shadow: 0 0 0 8px currentColor;
   }
 }
 

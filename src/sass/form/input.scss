@@ -27,12 +27,6 @@
       background-color: rgba(125, 125, 125, 0.15);
       border-bottom-color: var(--bulma-text-strong);
     }
-
-    &:focus {
-      background-color: rgba(125, 125, 125, 0.15);
-      border-bottom-color: var(--bulma-primary);
-      box-shadow: none !important;
-    }
   }
 
   &:not(.is-material-filled) {
@@ -41,14 +35,6 @@
 
     &:hover {
       border-color: var(--bulma-text-strong);
-    }
-
-    &:focus {
-      border-color: var(--bulma-primary);
-      border-width: 2px;
-      padding-left: calc(16px - 1px);
-      padding-right: calc(16px - 1px);
-      box-shadow: none !important;
     }
   }
 }
