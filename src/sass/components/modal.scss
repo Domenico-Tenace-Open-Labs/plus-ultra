@@ -3,12 +3,12 @@
 .modal {
   // Backdrop
   .modal-background {
-    background-color: rgba(0, 0, 0, 0.6); // Dimmer
+    background-color: rgba(0, 0, 0, 0.6); // Dimmer (Standard overlay)
   }
 
   .modal-content,
   .modal-card {
-    border-radius: 4px; // Surface shape
+    border-radius: var(--bulma-radius); // Surface shape
     box-shadow:
       0 11px 15px -7px rgba(0, 0, 0, 0.2),
       0 24px 38px 3px rgba(0, 0, 0, 0.14),
@@ -21,14 +21,14 @@
   // Header (Title)
   .modal-card-head {
     border-bottom: none; // Material doesn't usually line divide headers
-    background-color: v.$white;
+    background-color: var(--bulma-scheme-main);
     padding: 24px 24px 20px;
 
     .modal-card-title {
       font-size: 1.25rem; // H6
       font-weight: 500;
       line-height: 1.6;
-      color: rgba(0, 0, 0, 0.87);
+      color: var(--bulma-text-strong);
     }
 
     .delete {
@@ -40,8 +40,8 @@
 
   // Body
   .modal-card-body {
-    background-color: v.$white;
-    color: rgba(0, 0, 0, 0.6); // Body color
+    background-color: var(--bulma-scheme-main);
+    color: var(--bulma-text); // Body color
     padding: 0 24px 24px; // Bottom padding
     font-size: 1rem;
     line-height: 1.5;
@@ -49,7 +49,7 @@
 
   // Footer (Actions)
   .modal-card-foot {
-    background-color: v.$white;
+    background-color: var(--bulma-scheme-main);
     border-top: none;
     padding: 8px 16px 16px; // Alignment
     justify-content: flex-end; // Right align actions
@@ -62,10 +62,17 @@
       &:not(.is-primary):not(.is-danger):not(.is-success) {
         background-color: transparent;
         box-shadow: none;
-        color: v.$primary;
+        color: var(--bulma-primary);
 
         &:hover {
-          background-color: rgba(v.$primary, 0.04);
+          background-color: rgba(
+            var(--bulma-primary-r),
+            var(--bulma-primary-g),
+            var(--bulma-primary-b),
+            0.04
+          );
+          // Fallback if RGB vars aren't separate, use opacity on background
+          // background-color: var(--bulma-primary-light);
         }
       }
     }

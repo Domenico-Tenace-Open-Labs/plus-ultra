@@ -54,7 +54,12 @@
       }
 
       &:focus {
-        background-color: rgba(125, 125, 125, 0.15);
+        background-color: rgba(
+          var(--bulma-primary-r),
+          var(--bulma-primary-g),
+          var(--bulma-primary-b),
+          0.1
+        );
         border-bottom-color: var(--bulma-primary) !important;
       }
     }

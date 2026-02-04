@@ -2,8 +2,8 @@
 
 .navbar {
   // Top App Bar
-  background-color: v.$primary !important; // Primary color mostly
-  color: v.$white;
+  background-color: var(--bulma-primary) !important; // Primary color mostly
+  color: var(--bulma-primary-invert);
   height: 64px; // Desktop standard
   min-height: 64px;
   box-shadow:
@@ -19,12 +19,12 @@
     padding-left: 16px;
 
     .navbar-item {
-      color: v.$white;
+      color: var(--bulma-primary-invert);
       font-size: 1.25rem; // H6
       font-weight: 500;
 
       &:hover {
-        color: v.$white;
+        color: var(--bulma-primary-invert);
         background-color: transparent; // No change on brand hover usually
       }
 
@@ -34,11 +34,16 @@
     }
 
     .navbar-burger {
-      color: v.$white;
+      color: var(--bulma-primary-invert);
       height: 64px;
       width: 64px;
       &:hover {
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.08
+        ); // Keep explicit white/alpha for on-primary
       }
     }
   }
@@ -56,7 +61,12 @@
 
   .navbar-item,
   .navbar-link {
-    color: rgba(255, 255, 255, 0.7); // Medium emphasis on primary
+    color: rgba(
+      255,
+      255,
+      255,
+      0.7
+    ); // Medium emphasis on primary - hard to var() this without specific on-primary-medium var
     font-size: 0.875rem;
     font-weight: 500;
     text-transform: uppercase; // Optional, often mixed case in Top Bar
@@ -68,7 +78,7 @@
     &:hover,
     &.is-active {
       background-color: transparent;
-      color: v.$white;
+      color: var(--bulma-primary-invert);
     }
   }
 
@@ -80,33 +90,34 @@
       0 8px 10px 1px rgba(0, 0, 0, 0.14),
       0 3px 14px 2px rgba(0, 0, 0, 0.12);
     padding: 8px 0;
+    background-color: var(--bulma-scheme-main); // Dropdown surface
 
     .navbar-item {
-      color: rgba(0, 0, 0, 0.87); // Normal text in dropdown
+      color: var(--bulma-text); // Normal text in dropdown
       height: 48px;
       text-transform: none;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.04);
-        color: rgba(0, 0, 0, 0.87);
+        background-color: var(--bulma-background);
+        color: var(--bulma-text-strong);
       }
     }
   }
 
   // Modifiers
   &.is-light {
-    background-color: v.$white !important;
-    color: rgba(0, 0, 0, 0.87);
+    background-color: var(--bulma-scheme-main) !important;
+    color: var(--bulma-text);
 
     .navbar-brand .navbar-item,
     .navbar-brand .navbar-burger {
-      color: rgba(0, 0, 0, 0.87);
+      color: var(--bulma-text);
     }
     .navbar-item,
     .navbar-link {
-      color: rgba(0, 0, 0, 0.6);
+      color: var(--bulma-text-weak);
       &:hover {
-        color: v.$primary;
+        color: var(--bulma-primary);
       }
     }
   }

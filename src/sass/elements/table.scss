@@ -1,25 +1,25 @@
 @use "../variables" as v;
 
 .table {
-  background-color: v.$white;
-  color: rgba(0, 0, 0, 0.87);
+  background-color: var(--bulma-scheme-main);
+  color: var(--bulma-text);
   font-size: 0.875rem; // 14sp Body 2
 
   // Headers
   th {
-    color: rgba(0, 0, 0, 0.6); // Medium emphasis
+    color: var(--bulma-text-weak); // Medium emphasis
     font-weight: 500;
     font-size: 0.875rem;
     padding: 1rem 1rem; // Relaxed padding
     vertical-align: bottom;
     border-width: 0 0 1px;
-    border-color: rgba(0, 0, 0, 0.12);
+    border-color: var(--bulma-border-weak);
   }
 
   // Cells
   td {
     border-width: 0 0 1px;
-    border-color: rgba(0, 0, 0, 0.12); // Divider color
+    border-color: var(--bulma-border-weak); // Divider color
     padding: 1rem 1rem;
     vertical-align: middle;
   }
@@ -27,14 +27,16 @@
   // Striped
   &.is-striped {
     tbody tr:not(.is-selected):nth-child(even) {
-      background-color: #fafafa; // Very subtle grey
+      background-color: var(
+        --bulma-scheme-main-bis
+      ); // Very subtle grey/surface
     }
   }
 
   // Hoverable
   &.is-hoverable {
     tbody tr:not(.is-selected):hover {
-      background-color: #f5f5f5; // Standard hover
+      background-color: var(--bulma-background-hover);
     }
   }
 

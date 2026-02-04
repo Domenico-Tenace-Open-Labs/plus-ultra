@@ -19,7 +19,7 @@ $black: $material-black !default;
 $black-bis: #121212 !default; // Dark mode background often used in Material
 $black-ter: #242424 !default;
 
-$grey-darker: #212121 !default; // Grey 900
+$grey-darker: #1e1e2e !default; // Grey 900
 $grey-dark: #424242 !default; // Grey 800
 $grey: #757575 !default; // Grey 600
 $grey-light: #bdbdbd !default; // Grey 400
@@ -42,7 +42,7 @@ $light-green: #8bc34a !default;
 $lime: #cddc39 !default;
 $yellow: #ffeb3b !default;
 $amber: #ffc107 !default; // Material Amber 500
-$orange: #ff9800 !default;
+$orange: #fa892d !default;
 $deep-orange: #ff5722 !default;
 $red: #f44336 !default; // Material Red 500
 $pink: #e91e63 !default;
@@ -119,7 +119,7 @@ $text-strong: rgba(0, 0, 0, 0.87) !default; // High emphasis
 $text-weak: rgba(0, 0, 0, 0.6) !default; // Medium emphasis
 
 // Status Colors (Brand & States)
-$primary: $deep-purple !default; // MD2 Primary
+$primary: $orange !default; // MD2 Primary
 $info: $blue !default; // MD Blue
 $success: $green !default;
 $warning: $amber !default;

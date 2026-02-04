@@ -41,7 +41,7 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--bulma-scheme-main-bis); // Surface color thumb
+    background-color: var(--bulma-scheme-main); // Surface color thumb
     box-shadow:
       0 2px 1px -1px rgba(0, 0, 0, 0.2),
       0 1px 1px 0 rgba(0, 0, 0, 0.14),
@@ -73,22 +73,14 @@ input[type="checkbox"] {
     // For ripple, we'll use a transparency trick or just opacity.
 
     &:hover::after {
-      box-shadow:
-        0 0 0 8px var(--bulma-primary-soft-invert),
-        // Need a soft primary representation?
-        // Bulma CSS vars don't have "primary-transparent".
-        // We'll trust browser default or use a known generic.
-        0 0 0 8px
-          rgba(
-            var(--bulma-primary-h),
-            var(--bulma-primary-s),
-            var(--bulma-primary-l),
-            0.12
-          ),
-        // Wait, Bulma HSL vars exist but not easy to construct rgba in CSS string.
-        // Fallback:
-        0 0 0 8px currentColor;
-      // Set color to primary?
+      // Use CSS variable if available, otherwise fallback to opacity trick or specific var
+      box-shadow: 0 0 0 8px
+        rgba(
+          var(--bulma-primary-r),
+          var(--bulma-primary-g),
+          var(--bulma-primary-b),
+          0.12
+        );
     }
   }
 

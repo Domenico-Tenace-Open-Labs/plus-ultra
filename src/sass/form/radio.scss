@@ -50,11 +50,6 @@
   }
 }
 
-.radio input[type="radio"]:checked {
-  + * {
-  }
-}
-
 .radio:has(input[type="radio"]:checked) {
   &::before {
     border-color: var(--bulma-primary);
@@ -62,6 +57,7 @@
 
   &::after {
     transform: translateY(-50%) scale(0.625);
+    background-color: var(--bulma-primary);
   }
 }
 

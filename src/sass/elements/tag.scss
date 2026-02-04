@@ -4,9 +4,9 @@
 .tag {
   // Material Chip
   align-items: center;
-  background-color: #e0e0e0; // Grey 300
+  background-color: var(--bulma-border); // Grey 300 equivalent
   border-radius: 16px; // Chip radius
-  color: rgba(0, 0, 0, 0.87); // High emphasis
+  color: var(--bulma-text); // High emphasis
   display: inline-flex;
   font-size: 0.8125rem; // 13sp
   height: 32px; // Standard height
@@ -40,7 +40,7 @@
     // Custom delete icon similar to Material cancel
     &::before,
     &::after {
-      background-color: #000;
+      background-color: var(--bulma-text-strong);
     }
 
     &:hover {
@@ -51,33 +51,33 @@
 
   // Colors
   &.is-primary {
-    background-color: v.$primary;
-    color: v.$white;
+    background-color: var(--bulma-primary);
+    color: var(--bulma-primary-invert);
   }
   &.is-link {
-    background-color: v.$link;
-    color: v.$white;
+    background-color: var(--bulma-link);
+    color: var(--bulma-link-invert);
   }
   &.is-info {
-    background-color: v.$info;
-    color: v.$white;
+    background-color: var(--bulma-info);
+    color: var(--bulma-info-invert);
   }
   &.is-success {
-    background-color: v.$success;
-    color: v.$white;
+    background-color: var(--bulma-success);
+    color: var(--bulma-success-invert);
   }
   &.is-warning {
-    background-color: v.$warning;
-    color: rgba(0, 0, 0, 0.87);
+    background-color: var(--bulma-warning);
+    color: var(--bulma-warning-invert);
   }
   &.is-danger {
-    background-color: v.$danger;
-    color: v.$white;
+    background-color: var(--bulma-danger);
+    color: var(--bulma-danger-invert);
   }
 
   &.is-light {
-    background-color: v.$white-ter;
-    border: 1px solid #e0e0e0;
+    background-color: var(--bulma-background);
+    border: 1px solid var(--bulma-border);
   }
 
   // Sizes - Chips dont vary much but we support Bulma modifiers

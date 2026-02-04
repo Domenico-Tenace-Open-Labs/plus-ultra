@@ -2,7 +2,7 @@
 
 .notification {
   // Material Banner / Snackbar / Card
-  background-color: v.$white-ter;
+  background-color: var(--bulma-background);
   border-radius: 4px;
   padding: 1.25rem 2.5rem 1.25rem 1.5rem;
   position: relative;
@@ -15,7 +15,7 @@
 
   code,
   pre {
-    background: v.$white;
+    background: var(--bulma-scheme-main);
   }
 
   // Close button positioning
@@ -27,23 +27,17 @@
 
   // Colors (Colored Banners)
   @each $name, $value in v.$colors {
-    $color: if(length($value) > 1, nth($value, 1), $value);
-    $color-invert: if(
-      length($value) > 1,
-      nth($value, 2),
-      v.bulmaFindColorInvert($color)
-    );
-
+    // We rely on Bulma's generated CSS variables for these colors
     &.is-#{$name} {
-      background-color: $color;
-      color: $color-invert;
+      background-color: var(--bulma-#{$name});
+      color: var(--bulma-#{$name}-invert);
 
       // Override delete button opacity in colored notifications
       .delete {
         background-color: rgba(0, 0, 0, 0.2); // Darker shade
         &::before,
         &::after {
-          background-color: $color-invert;
+          background-color: var(--bulma-#{$name}-invert);
         }
       }
     }
