@@ -1,5 +1,5 @@
 {
-  "name": "plus-ultra",
+  "name": "@domet99/plus-ultra",
   "version": "0.1.0",
   "description": "Material Design components built on top of Bulma CSS, using pure CSS/Sass",
   "scripts": {
