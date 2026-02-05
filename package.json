@@ -21,10 +21,12 @@
   "author": "Domenico Tenace",
   "license": "MIT",
   "packageManager": "pnpm@10.28.1",
-  "files": [
-    "dist"
-  ],
   "main": "dist/plus-ultra.css",
+  "style": "dist/plus-ultra.css",
+  "files": [
+    "dist/plus-ultra.css",
+    "dist/plus-ultra.css.map"
+  ],
   "dependencies": {
     "bulma": "^1.0.4"
   },
