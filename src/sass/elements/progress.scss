@@ -1,0 +1,104 @@
+@use "../variables" as v;
+@use "sass:color";
+
+.progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  display: block;
+  height: 4px;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+
+  background-color: var(--bulma-primary-light); // Approximated light track
+  color: var(--bulma-primary);
+
+  &::-webkit-progress-bar {
+    background-color: var(--bulma-primary-light);
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--bulma-primary);
+    transition: width 0.3s linear;
+  }
+
+  &::-moz-progress-bar {
+    background-color: var(--bulma-primary);
+  }
+
+  &::-ms-fill {
+    background-color: var(--bulma-primary);
+    border: none;
+  }
+
+  // Variants
+  &.is-link {
+    &::-webkit-progress-value {
+      background-color: var(--bulma-link);
+    }
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-link-light);
+    }
+  }
+  &.is-info {
+    &::-webkit-progress-value {
+      background-color: var(--bulma-info);
+    }
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-info-light);
+    }
+  }
+  &.is-success {
+    &::-webkit-progress-value {
+      background-color: var(--bulma-success);
+    }
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-success-light);
+    }
+  }
+  &.is-warning {
+    &::-webkit-progress-value {
+      background-color: var(--bulma-warning);
+    }
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-warning-light);
+    }
+  }
+  &.is-danger {
+    &::-webkit-progress-value {
+      background-color: var(--bulma-danger);
+    }
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-danger-light);
+    }
+  }
+
+  // Indeterminate
+  &:not([value]) {
+    position: relative;
+    // We can't use linear-gradient with vars on some older browsers but it's fine now
+    background-image: linear-gradient(
+      to right,
+      var(--bulma-primary) 30%,
+      transparent 30%
+    );
+    background-size: 50% 100%;
+    animation: material-progress-indeterminate 2s linear infinite;
+
+    &::-webkit-progress-bar {
+      background-color: var(--bulma-primary-light);
+    }
+  }
+}
+
+@keyframes material-progress-indeterminate {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}

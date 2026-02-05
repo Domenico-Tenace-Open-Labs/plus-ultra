@@ -1,0 +1,88 @@
+@use "../variables" as v;
+@use "sass:color";
+
+.radio {
+  $radio-size: 20px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  color: var(--bulma-text);
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: $radio-size;
+    height: $radio-size;
+    border-radius: 50%;
+    border: 2px solid var(--bulma-text-weak);
+    margin-right: 0.5rem;
+    box-sizing: border-box;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(0.5rem + 2px);
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%) scale(0);
+    background-color: var(--bulma-primary);
+    border-radius: 50%;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.radio:has(input[type="radio"]:checked) {
+  &::before {
+    border-color: var(--bulma-primary);
+  }
+
+  &::after {
+    transform: translateY(-50%) scale(0.625);
+    background-color: var(--bulma-primary);
+  }
+}
+
+.radio:hover {
+  &::before {
+    box-shadow: 0 0 0 8px rgba(125, 125, 125, 0.1);
+  }
+}
+
+.radio:has(input[type="radio"]:checked):hover {
+  color: var(--bulma-primary);
+  &::before {
+    box-shadow: 0 0 0 8px currentColor;
+  }
+}
+
+.radio[disabled],
+.radio:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &::before {
+    border-color: var(--bulma-text-light);
+  }
+  &::after {
+    background-color: var(--bulma-text-light);
+  }
+}

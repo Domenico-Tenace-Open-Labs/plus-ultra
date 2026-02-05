@@ -1,0 +1,67 @@
+@use "../variables" as v;
+
+.tabs {
+  background-color: var(--bulma-primary); // Often tabs are in primary header
+  color: var(--bulma-primary-invert); // Text color on primary
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  ul {
+    border-bottom: none;
+    margin: 0;
+  }
+
+  li {
+    a {
+      border-bottom: 2px solid transparent; // Indicator placeholder
+      color: rgba(255, 255, 255, 0.7); // Medium emphasis on primary
+      padding: 0 24px; // Tab padding
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        background-color 0.2s,
+        color 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-bottom-color: transparent; // Don't show generic border
+        color: var(--bulma-primary-invert);
+      }
+    }
+
+    &.is-active a {
+      color: var(--bulma-primary-invert);
+      border-bottom-color: var(
+        --bulma-yellow
+      ); // Accent/Secondary color for indicator?
+      // Or use white:
+      border-bottom-color: var(--bulma-primary-invert);
+      border-bottom-width: 2px;
+    }
+  }
+
+  // Boxed toggles (Alternative)
+  &.is-boxed {
+    background-color: transparent;
+
+    li {
+      a {
+        color: var(--bulma-text);
+        border-radius: 4px 4px 0 0;
+        &:hover {
+          background-color: var(--bulma-background);
+          color: var(--bulma-primary);
+        }
+      }
+      &.is-active a {
+        background-color: var(--bulma-scheme-main);
+        color: var(--bulma-primary);
+        border-color: transparent;
+        border-bottom: 2px solid var(--bulma-primary);
+      }
+    }
+  }
+}

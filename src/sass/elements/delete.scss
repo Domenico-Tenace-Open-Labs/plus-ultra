@@ -1,0 +1,73 @@
+@use "../variables" as v;
+
+.delete {
+  // Material Icon Button (Cancel/Close)
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.2); // Bulma default
+  border: none;
+  border-radius: 50%; // Circle
+  cursor: pointer;
+  pointer-events: auto;
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 0;
+  height: 24px; // Standard icon size
+  max-height: 24px;
+  max-width: 24px;
+  min-height: 24px;
+  min-width: 24px;
+  outline: none;
+  position: relative;
+  vertical-align: top;
+  width: 24px;
+
+  // Custom X icon (Material simplified)
+  &::before,
+  &::after {
+    background-color: v.$white;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+  }
+
+  &::before {
+    height: 2px;
+    width: 50%;
+  }
+
+  &::after {
+    height: 50%;
+    width: 2px;
+  }
+
+  // Ripple/Hover effect overrides
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  // Sizes
+  &.is-medium {
+    height: 32px;
+    max-height: 32px;
+    min-height: 32px;
+    width: 32px;
+    max-width: 32px;
+    min-width: 32px;
+  }
+  &.is-large {
+    height: 48px;
+    max-height: 48px;
+    min-height: 48px;
+    width: 48px;
+    max-width: 48px;
+    min-width: 48px;
+  }
+}

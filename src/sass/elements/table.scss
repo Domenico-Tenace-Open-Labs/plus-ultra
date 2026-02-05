@@ -1,0 +1,51 @@
+@use "../variables" as v;
+
+.table {
+  background-color: var(--bulma-scheme-main);
+  color: var(--bulma-text);
+  font-size: 0.875rem; // 14sp Body 2
+
+  // Headers
+  th {
+    color: var(--bulma-text-weak); // Medium emphasis
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 1rem 1rem; // Relaxed padding
+    vertical-align: bottom;
+    border-width: 0 0 1px;
+    border-color: var(--bulma-border-weak);
+  }
+
+  // Cells
+  td {
+    border-width: 0 0 1px;
+    border-color: var(--bulma-border-weak); // Divider color
+    padding: 1rem 1rem;
+    vertical-align: middle;
+  }
+
+  // Striped
+  &.is-striped {
+    tbody tr:not(.is-selected):nth-child(even) {
+      background-color: var(
+        --bulma-scheme-main-bis
+      ); // Very subtle grey/surface
+    }
+  }
+
+  // Hoverable
+  &.is-hoverable {
+    tbody tr:not(.is-selected):hover {
+      background-color: var(--bulma-background-hover);
+    }
+  }
+
+  // Bordered - Material usually doesn't do full grid borders, mostly rows.
+  // But if requested:
+  &.is-bordered {
+    td,
+    th {
+      border-width: 1px;
+    }
+  }
+}

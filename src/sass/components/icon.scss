@@ -1,0 +1,85 @@
+@use "../variables.scss" as v;
+
+$icon-dimensions: 1.5rem !default;
+$icon-dimensions-small: 1rem !default;
+$icon-dimensions-medium: 2rem !default;
+$icon-dimensions-large: 3rem !default;
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: $icon-dimensions;
+  width: $icon-dimensions;
+  font-size: v.$size-normal;
+  line-height: 1;
+  color: inherit;
+
+  &.is-small {
+    height: $icon-dimensions-small;
+    width: $icon-dimensions-small;
+    font-size: v.$size-small;
+  }
+
+  &.is-medium {
+    height: $icon-dimensions-medium;
+    width: $icon-dimensions-medium;
+    font-size: 1.33rem;
+  }
+
+  &.is-large {
+    height: $icon-dimensions-large;
+    width: $icon-dimensions-large;
+    font-size: 2rem;
+  }
+}
+
+.control {
+  &.has-icons-left,
+  &.has-icons-right {
+    .icon {
+      color: v.$text-weak;
+      height: 2.5em;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: 2.5em;
+      z-index: 4;
+      transition: color v.$duration v.$easing;
+      font-size: 1.125rem;
+    }
+  }
+
+  &.has-icons-left {
+    .input,
+    .select select {
+      padding-left: 2.5em;
+    }
+
+    .icon.is-left {
+      left: 0;
+      top: 0;
+    }
+
+    .input:focus ~ .icon.is-left,
+    .select select:focus ~ .icon.is-left {
+      color: v.$primary;
+    }
+  }
+
+  &.has-icons-right {
+    .input,
+    .select select {
+      padding-right: 2.5em;
+    }
+
+    .icon.is-right {
+      right: 0;
+    }
+
+    .input:focus ~ .icon.is-right,
+    .select select:focus ~ .icon.is-right {
+      color: v.$primary;
+    }
+  }
+}

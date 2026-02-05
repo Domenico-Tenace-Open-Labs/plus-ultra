@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Material Design components built on top of Bulma CSS, using pure CSS/Sass",
   "scripts": {
-    "build": "sass --load-path=node_modules src/sass/index.scss dist/plus-ultra.css",
-    "watch": "sass --watch --load-path=node_modules src/sass/index.scss dist/plus-ultra.css"
+    "build": "sass --load-path=node_modules src/index.scss dist/plus-ultra.css --style compressed",
+    "watch": "sass --watch --load-path=node_modules src/index.scss dist/plus-ultra.css --style compressed"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,12 @@
   "author": "Domenico Tenace",
   "license": "MIT",
   "packageManager": "pnpm@10.28.1",
-  "files": [
-    "dist"
-  ],
   "main": "dist/plus-ultra.css",
+  "style": "dist/plus-ultra.css",
+  "files": [
+    "dist/plus-ultra.css",
+    "dist/plus-ultra.css.map"
+  ],
   "dependencies": {
     "bulma": "^1.0.4"
   },

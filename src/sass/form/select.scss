@@ -1,0 +1,80 @@
+@use "../variables" as v;
+
+.select {
+  height: 56px !important;
+
+  select {
+    height: 56px !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    font-size: 1rem;
+    border-radius: 4px !important;
+    color: var(--bulma-text);
+
+    background-color: transparent;
+    border: 1px solid var(--bulma-border);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: var(--bulma-text-strong);
+      z-index: 2;
+    }
+
+    &:focus {
+      border-color: var(--bulma-primary) !important;
+      border-width: 2px;
+      box-shadow: none !important;
+      padding-left: calc(16px - 1px);
+    }
+  }
+
+  // Arrow
+  &:not(.is-multiple):not(.is-loading)::after {
+    border-color: var(--bulma-text-weak);
+    right: 16px;
+    border-width: 2px;
+    margin-top: -4px;
+  }
+
+  &:hover::after {
+    border-color: var(--bulma-text);
+  }
+
+  &.is-material-filled {
+    select {
+      background-color: rgba(125, 125, 125, 0.1);
+      border: none;
+      border-bottom: 2px solid var(--bulma-border-hover);
+      border-radius: 4px 4px 0 0 !important;
+
+      &:hover {
+        background-color: rgba(125, 125, 125, 0.15);
+        border-bottom-color: var(--bulma-text-strong);
+      }
+
+      &:focus {
+        background-color: rgba(
+          var(--bulma-primary-r),
+          var(--bulma-primary-g),
+          var(--bulma-primary-b),
+          0.1
+        );
+        border-bottom-color: var(--bulma-primary) !important;
+      }
+    }
+  }
+
+  // Options
+  select option {
+    padding: 8px 16px;
+    font-size: 1rem;
+    color: var(--bulma-text);
+    background-color: var(--bulma-scheme-main); // Dark mode surface
+
+    &:checked {
+      background-color: var(--bulma-background); // Slightly distinct
+      color: var(--bulma-primary);
+    }
+  }
+}

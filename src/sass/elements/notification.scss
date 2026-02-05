@@ -1,0 +1,45 @@
+@use "../variables" as v;
+
+.notification {
+  // Material Banner / Snackbar / Card
+  background-color: var(--bulma-background);
+  border-radius: 4px;
+  padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+  position: relative;
+
+  // Elevation for snackbar/banner feel
+  box-shadow:
+    0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12); // Elevation 6 approx
+
+  code,
+  pre {
+    background: var(--bulma-scheme-main);
+  }
+
+  // Close button positioning
+  .delete {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+
+  // Colors (Colored Banners)
+  @each $name, $value in v.$colors {
+    // We rely on Bulma's generated CSS variables for these colors
+    &.is-#{$name} {
+      background-color: var(--bulma-#{$name});
+      color: var(--bulma-#{$name}-invert);
+
+      // Override delete button opacity in colored notifications
+      .delete {
+        background-color: rgba(0, 0, 0, 0.2); // Darker shade
+        &::before,
+        &::after {
+          background-color: var(--bulma-#{$name}-invert);
+        }
+      }
+    }
+  }
+}

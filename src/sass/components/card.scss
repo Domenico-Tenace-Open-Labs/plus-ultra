@@ -1,0 +1,90 @@
+@use "../variables" as v;
+
+.card {
+  // Material Card
+  background-color: var(--bulma-scheme-main);
+  color: var(--bulma-text);
+  max-width: 100%;
+  position: relative;
+
+  // Elevation 1 default
+  box-shadow:
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+  border-radius: var(--bulma-radius);
+  overflow: hidden; // to clip image corners
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Interactive cards
+  // &:hover {}
+
+  // .card-image {}
+
+  .card-content {
+    padding: 16px; // Standard 16px
+  }
+
+  .media {
+    align-items: center;
+    margin-bottom: 16px;
+
+    .media-left {
+      margin-right: 16px;
+    }
+
+    .title {
+      font-size: 1.25rem; // Headline 6
+      line-height: 2rem;
+      font-weight: 500;
+      margin-bottom: 0 !important;
+      color: var(--bulma-text-strong);
+    }
+    .subtitle {
+      font-size: 0.875rem; // Subtitle 2
+      line-height: 1.375rem;
+      color: var(--bulma-text-weak); // Medium emphasis
+      margin-top: 0 !important;
+    }
+  }
+
+  .content {
+    font-size: 0.875rem; // Body 2
+    line-height: 1.25rem;
+    color: var(--bulma-text); // Body text
+
+    time {
+      font-size: 0.75rem; // Caption
+      display: block;
+      margin-top: 8px;
+      color: var(--bulma-text-weak);
+    }
+  }
+
+  // Footer/Actions (Bulma uses card-footer)
+  .card-footer {
+    border-top: none; // Material actions are clean
+    padding: 8px;
+
+    .card-footer-item {
+      border-right: none; // Remove dividers
+      justify-content: flex-start; // Left align
+      padding: 0 8px;
+
+      // Style as Text Buttons
+      color: v.$primary;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.0892857143em;
+      height: 36px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(v.$primary, 0.04);
+      }
+    }
+  }
+}

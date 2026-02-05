@@ -1,0 +1,219 @@
+// ==========================================================================
+// Bulma Dictionary - All Variables
+// Redefined for Material Design
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 1. Initial Variables (Core)
+// --------------------------------------------------------------------------
+
+// Scheme Hue and Saturation (Adjusted for a cooler, cleaner base)
+$scheme-h: 221 !default;
+$scheme-s: 14% !default;
+
+// Colors - Material Design Palette 2014/2018
+$material-black: #000000;
+$material-white: #ffffff;
+
+$black: $material-black !default;
+$black-bis: #121212 !default; // Dark mode background often used in Material
+$black-ter: #242424 !default;
+
+$grey-darker: #1e1e2e !default; // Grey 900
+$grey-dark: #424242 !default; // Grey 800
+$grey: #757575 !default; // Grey 600
+$grey-light: #bdbdbd !default; // Grey 400
+$grey-lighter: #e0e0e0 !default; // Grey 300
+$grey-lightest: #f5f5f5 !default; // Grey 100
+
+$white-ter: #fafafa !default; // Grey 50
+$white-bis: #f5f5f5 !default; // Grey 100
+$white: $material-white !default;
+
+// Material Brand Colors
+$deep-purple: #6200ee !default; // Material Primary 500
+$indigo: #3f51b5 !default;
+$blue: #2196f3 !default; // Material Blue 500
+$light-blue: #03a9f4 !default;
+$cyan: #00bcd4 !default;
+$teal: #009688 !default;
+$green: #4caf50 !default; // Material Green 500
+$light-green: #8bc34a !default;
+$lime: #cddc39 !default;
+$yellow: #ffeb3b !default;
+$amber: #ffc107 !default; // Material Amber 500
+$orange: #fa892d !default;
+$deep-orange: #ff5722 !default;
+$red: #f44336 !default; // Material Red 500
+$pink: #e91e63 !default;
+
+// Typography - Families
+// Roboto is the standard font for Material Design
+$family-sans-serif:
+  "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$family-monospace: "Roboto Mono", "Source Code Pro", monospace !default;
+$render-mode: optimizeLegibility !default;
+
+// Typography - Sizes
+$size-1: 6rem !default; // h1 - 96sp
+$size-2: 3.75rem !default; // h2 - 60sp
+$size-3: 3rem !default; // h3 - 48sp
+$size-4: 2.125rem !default; // h4 - 34sp
+$size-5: 1.5rem !default; // h5 - 24sp
+$size-6: 1.25rem !default; // h6 - 20sp
+$size-7: 1rem !default; // subtitle - 16sp
+// Note: Bulma uses size-normal for body text which defaults to size-6 (1rem usually).
+// We might need to adjust mappings later.
+
+// Typography - Weights
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default; // Less common in generic Material, but useful
+$weight-bold: 700 !default;
+$weight-extrabold: 800 !default;
+
+// Spacing
+$block-spacing: 1.5rem !default;
+
+// Responsiveness - Breakpoints (Standard Material Breakpoints)
+$gap: 32px !default;
+$tablet: 600px !default;
+$desktop: 905px + 2 * $gap !default; // Approx for desktop
+$widescreen: 1240px + 2 * $gap !default;
+$fullhd: 1440px + 2 * $gap !default;
+$widescreen-enabled: true !default;
+$fullhd-enabled: true !default;
+
+// Miscellaneous & Radius
+$duration: 200ms !default; // Quicker transitions
+$easing: cubic-bezier(0.4, 0, 0.2, 1) !default; // Material Standard Curve
+$radius-small: 2px !default;
+$radius: 4px !default; // Material Card radius
+$radius-medium: 4px !default;
+$radius-large: 8px !default;
+$radius-rounded: 9999px !default;
+$speed: 86ms !default;
+
+// Flags
+$variable-columns: true !default;
+$rtl: false !default;
+
+// --------------------------------------------------------------------------
+// 2. Derived Variables (Contextual)
+// --------------------------------------------------------------------------
+
+// Scheme Colors
+$scheme-main: $white !default;
+$scheme-main-bis: $white-bis !default;
+$scheme-main-ter: $white-ter !default;
+$scheme-invert: $black !default;
+$scheme-invert-bis: $black-bis !default;
+$scheme-invert-ter: $black-ter !default;
+
+// Text Colors
+// Material emphasizes high emphasis text (#000...87%) and medium (#000...60%)
+// We approximate with hex since Bulma variables expect colors.
+$text: rgba(0, 0, 0, 0.87) !default;
+$text-strong: rgba(0, 0, 0, 0.87) !default; // High emphasis
+$text-weak: rgba(0, 0, 0, 0.6) !default; // Medium emphasis
+
+// Status Colors (Brand & States)
+$primary: $orange !default; // MD2 Primary
+$info: $blue !default; // MD Blue
+$success: $green !default;
+$warning: $amber !default;
+$danger: $red !default;
+$light: $grey-lighter !default;
+$dark: $grey-darker !default;
+
+// Link Colors
+$link: $blue !default;
+
+// Decorative Variables
+$background: $white-ter !default;
+$border: $grey-lighter !default;
+$border-weak: $grey-lightest !default;
+$shadow-color: rgba(0, 0, 0, 0.2) !default;
+
+// Code
+$code: $pink !default;
+$code-background: $background !default;
+$pre: $text !default;
+$pre-background: $background !default;
+
+// Typography - Mappings
+$family-primary: $family-sans-serif !default;
+$family-secondary: $family-sans-serif !default;
+$family-code: $family-monospace !default;
+
+$size-small: 0.75rem !default; // Caption
+$size-normal: 1rem !default; // Body 1
+$size-medium: 1.25rem !default; // Title
+$size-large: 1.5rem !default; // Headline
+
+// --------------------------------------------------------------------------
+// 3. Lists and Maps
+// --------------------------------------------------------------------------
+
+$colors: (
+  "white": (
+    $white,
+    $black,
+  ),
+  "black": (
+    $black,
+    $white,
+  ),
+  "light": (
+    $light,
+    $text-strong,
+  ),
+  "dark": (
+    $dark,
+    $white,
+  ),
+  "text": (
+    $text,
+    $white,
+  ),
+  "primary": (
+    $primary,
+    $white,
+  ),
+  "link": (
+    $link,
+    $white,
+  ),
+  "info": (
+    $info,
+    $white,
+  ),
+  "success": (
+    $success,
+    $white,
+  ),
+  "warning": (
+    $warning,
+    rgba(0, 0, 0, 0.87),
+  ),
+  // Amber needs dark text
+  "danger": (
+      $danger,
+      $white,
+    ),
+) !default;
+
+$shades: (
+  "black-bis": $black-bis,
+  "black-ter": $black-ter,
+  "grey-darker": $grey-darker,
+  "grey-dark": $grey-dark,
+  "grey": $grey,
+  "grey-light": $grey-light,
+  "grey-lighter": $grey-lighter,
+  "white-ter": $white-ter,
+  "white-bis": $white-bis,
+) !default;
+
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;
